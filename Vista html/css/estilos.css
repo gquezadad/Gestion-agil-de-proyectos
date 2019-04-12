@@ -1,0 +1,540 @@
+/*Caracteristicas de comportamiento general de la pagina*/
+* {
+	margin: auto;
+	padding: 0;
+	box-sizing: border-box;
+	/*se define como se calculararn los cuadrados en base al ancho y al sitio y al alto con respecto del padding y el margin 
+	content-box indica que todo sera sin considerar padding o borders
+	border-box indica que se incluyen en los calculos bordes y padding
+	initial se fija el valor por defecto, depende
+	*/
+}
+
+/*Caracteristicas del contenedor principal*/
+.contenedor {
+	background:#ccc;/*determina el color del fondo del contenedor*/
+	width:95%;/*determina el ancho que ocupara el contenedor*/
+	max-width:1000px;
+	/* Flexbox */
+	display:flex;/*le entrega la caracteristica de flex al contenedor*/
+	flex-flow:row wrap;/*le da la caracteristica a los elementos al interior del contenedor de ordenarse en fila y en caso de no existir espacio bajar un nivel y generar otra fila*/
+	margin:auto;
+}
+
+/*Caracteristicas del body*/
+body {
+	background:#e9e9e9;/*Determina el color del fondo del body*/
+}
+
+/*Caracteristicas el contenedor header*/
+header {
+	background:#4C4C4C;/*Determina el color del fondo del header*/
+	width:100%;/*Determina el ancho en % que utilizara el header horizontalmente*/
+	
+
+	/* Flexbox */
+	display: flex;/*Le da la caracteristica de flex al header*/
+	justify-content:space-between;/*Determina como se organizaran los items al interior del flexbox en este caso indicando que existira espacio entre ellos*/
+	align-items:center;/*Determina el alineamiento de los items dentro del flexbox siendo este al centro*/
+	flex-direction:column;/*Determina la direccion que seguiran los items del flexbox, en este caso se organizaran de forma horizontal*/
+	flex-wrap:wrap;/*Determina como se comportaran los items cuando no quede espacio horizontal en la pagina, generando este lineas hacia abajo*/
+	font-family:consolas;/*Determina la fuente que utilizara el texto del header*/
+}
+
+/*Caracteristicas del contenedor logo*/
+header .logo {
+	width:600px;
+	vertical-align: top;
+	
+}
+
+
+/*Caracteristicas de las imagenes al interior del contenedor logo*/
+header .logo img {
+	width:50%;/*Determina el tamaño de la imagen a 800 pixeles al interior del contenedor logo*/
+	margin:20px;/*le da un margen de 20 pixeles del header a la imagen*/
+	align-items:center;/*alinea a la imagen al centro del header*/
+	padding: 10px;/*Determina el espacio que existira entre la clase logo y los archivo img en su interior*/
+}
+
+
+/*Caracteristicas del contenedor nav*/
+header nav {
+	width:50%;
+	/* Flexbox */
+
+	display:flex;
+	flex-wrap:row;
+	flex-direction:row;/*genera que los elementos del nav se ordenen en una columna*/
+	align-items:center;
+	text-align: center;
+	padding:5px;
+	
+}
+
+/*Caracteristicas de los elementos al interior del nav*/
+
+
+header nav a {
+	background:#EEEEEE;
+	color:black;
+	text-align: right;
+	text-decoration: none;
+	padding:10px;
+
+	/* Flexbox */
+	flex-grow:1; /*Especifica el numero maximo de items flex que pueden adecuarse en una zona*/
+}
+
+/*Caracteristicas cuando se pasa por encimas de los botones del nav */
+header nav a:hover {
+	background:lightblue;/*cambia el color de los elementos del nav cuando se pasa por encima de estos o cuando se hace click*/
+
+}
+
+
+/*Caracteristicas del carrusel de imagenes*/
+#carrusel {
+	background:#EEEEEE;
+}
+
+#carrusel img{
+	align-items:center;
+
+	width: 100%; 
+	max-height: 370px;
+}
+
+
+/*Texto al interior de las imagenes del carrusel*/
+.textof{
+	position: absolute;/*determina que el texto es colocado relativo a su primer ancestro*/
+	bottom:10px;/*borde de 10 pixeles entre el texto y el borde inferior del carrusel*/
+	left:10px;/*borde de 10 pixeles entre el texto y el costado izquierdo del carrusel*/
+	font-family:consolas;/*determina que el tipo de fuente utilizado por el texto del carrusel es consolas*/
+	width: 25%;/*determina que el tamaño del texto al interior del carrusel tendra un ancho del 25%*/
+	font-size:25px;/*determina que el tamaño de la fuente del texto del carrusel*/
+	
+}
+
+/*Contenedor de los elementos de redes sociales*/
+header .social {
+	background:#4C4C4C;/*determina el color del fondo del contenedor social*/
+	width:100%;/*determina que el contenedor social utilizara el 100% del espacio*/
+	display: flex;
+	flex-flow:row wrap;
+	align-items:center;/*alinea los itemes al centro del contenedor social*/
+	justify-content:space-evenly;/*determina que el espacio entre los elementos del contenedor social sera de igual tamaño entre ellos*/
+}
+
+/*Contenedor que posee la la informacion general de la pagina*/
+.main {
+	background:#fff;
+	padding:20px;
+	width:100%;
+}
+
+/*Caracteristicas de los elementos de tipo article al interior del main*/
+.main article {
+	width:100%;/*porcentaje del ancho de la pagina que va a usar el articulo*/
+	margin-bottom: 20px;/*tamaño del margen del fondo del articulo*/
+	padding-bottom:20px;/*tamaño de la distancia entre el articulo y el fondo del main*/
+	font-size:25px;/*tamaño de la fuente*/
+	text-align:right;/*alineación del texto*/
+	font-family:verdana;/*tipo de fuente*/
+	
+}
+
+/*Caracteristicas de los elementos img al interior del contenedor main*/
+.main img{
+	width:60%/*determina que las imagenes al interior del main utilizaran un 60% del espacio disponible*/;
+}
+
+/*Caracteristicas del elemento que posee la id articulo2*/
+#articulo2{
+	width:100%;/*porcentaje del ancho de la pagina que va a usar el articulo*/
+	margin-bottom: 20px;/*tamaño del margen del fondo del articulo*/
+	padding-bottom:20px;/*tamaño de la distancia entre el articulo y el fondo del main*/
+	font-size:25px;/*tamaño de la fuente*/
+	align-items:left;/*alineación de los items*/
+	text-align:left;/*alineación del texto*/
+	font-family:verdana;/*tipo de fuente*/
+}
+
+/*Caracteristicas del elemento campaña al interior del contenedor main*/
+.campaña {
+	display:flex;
+	width:25%;/*largo total de un 25% del tamaño de la pagina*/
+	border-style:solid;/*agrega borde al item campaña*/
+	font-family:consolas;/*fuente utilizada en el elemento campaña*/
+	text-align:center;/*alinea al texto al centro de campaña*/
+}
+
+.campaña a {
+	background:#fff;/*color de fondo campaña*/
+	color:#000;/*color de fuente*/
+	/* Flexbox */
+	flex-grow:1;/*permite al componente a utilizar el 100% del espacio disponible*/
+	padding:20px;/*separacion entre los bordes y el elemento a*/
+	font-size:40px;/*tamaño de fuente*/
+	text-decoration:none;/*remueve subrayado de texto para el link*/
+}
+
+.galeria {
+	background:#4C4C4C;/*determina el color de fondo*/
+}
+
+.galeria {
+	display:flex;
+	background:#4C4C4C;/*determina el color de fondo*/
+	width: 100%;/*determina el ancho que usara la galeria*/
+	padding:10px;/*Determina el espacio entre el border de la galeria y las imagenes*/
+	justify-content:space-between;/*determina que existira espacio entre los elementos de la galeria*/
+}
+
+.galeria .caja{
+    width: 100%;/*determina el ancho que usara el elemento caja*/
+    overflow: hidden;/*impide que la imagen se salga de sus bordes al crecer luego de hacer click*/
+	display:flex;
+	margin-bottom:auto;/*determina el borde inferior que usara el elemento caja*/
+	flex-flow:column;/*determina que la caja se comportara como una columna*/
+	justify-content:space-between;/*determina que existira espacio entre los elementos de la caja*/
+	margin:5px;/*el margen de la caja sera de 5px*/
+}
+
+.galeria .caja img{
+    width: 100%;/*determina el ancho que usaran las imagenes de caja*/	
+}
+
+.galeria img:hover{
+    transform:scale(1.5);/*determina al pasar por sobre la imagene esta crecera a 1.5 veces su tamaño normal*/
+    transition:all ease 1.5s;/*determina que la transicion entre el click y el crecimiento de la foto a 1.5 sera de 1.5 segundos*/
+    cursor:pointer;/*determina cual sera el cursor que se vera al hacer hover sobre la imagen*/
+}
+
+
+.galeria .cajalargo {
+	width: 100%;/*determina el ancho que usara la caja largo*/
+    overflow: hidden;/*impide que la imagen se salga de sus bordes al crecer luego de hacer click*/
+	display:flex;
+	flex-flow:column;/*determina que cajalargo se comportara como una columna*/
+	justify-content:space-between;/*determina que existira espacio entre los elementos de la cajalargo*/
+	margin:5px;/*el margen de cajalargo sera de 5px*/
+}
+
+.galeria .cajalargo img{
+	 width: 100%;/*determina el ancho que usaran las imagenes de cajalargo*/
+}
+
+/*Caracteristicas del pie de pagina*/
+footer {
+	background:#BFBFBF;/*color del fondo del footer*/
+	width: 100%;/*porcentaje de la pagina en el que se extendera el pie de pagina*/
+	padding:10px;/*borde que tendra el contenedor footer con los otros elementos dentro de este*/
+
+	/* Flexbox */
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:space-between;/*determina que exista espacio entre medio de los elementos del footer*/
+	text-align:left-side;/*alinea el texto hacia el lado izquierdo de la pagina*/
+}
+
+/*Caracteristicas del texto al interior del pie de pagina*/
+footer .texto{
+	font-family:consolas;/*tipo de fuente del texto*/
+	color:#6E6E6E;/*color del texto*/
+	font-size:30px;/*tamaño del texto*/
+}
+
+/*Determina las caracteristicas previamente definidas a cambiar cuando la resolucion de la pagina es de 800 pixeles*/
+@media screen and (max-width: 800px) {
+	
+	.contenedor {
+		flex-direction:column;
+	}
+
+	header {
+		width: 100%;
+		flex-direction:column;
+		padding:1px;
+		margin:1px;
+		
+	}
+
+	header .logo {
+		margin:20px 0;
+		vertical-align:top;
+	}
+	
+	header .logo img {
+		width:80%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
+		align-items: center;
+	}
+
+	header nav {
+		width: 100%;
+		flex-flow:column;
+		padding: 2px;
+	}
+	
+	header nav a {
+		width: 100%;
+		font-size:50px;
+	}
+	
+	header .social img{
+		height:64px;
+	}
+	
+	
+	#carrusel img{
+		height:100%;
+	}
+	
+	.textof{
+		font-size:20px;
+	}
+	
+	.main article {
+		font-family:verdana;
+		font-size:20px;
+		
+	}
+
+	.main img{
+		width:60%;
+	}
+
+	.main img:nth-last-child(2){
+		width:100%;
+		
+	}
+
+	#articulo2{
+		font-size:20px;
+		font-family:verdana;
+	}
+
+	.campaña {
+		width:30%;	
+	}
+
+	.campaña a {	
+		font-size:30px;	
+	}
+	
+	galeria {
+		width: 100%;
+	}
+
+	galeria .widget {
+		flex-grow:1;
+	}
+	
+	galeria .imagen{
+		flex-flow: row wrap;
+	}
+	
+	footer {
+		width:100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	
+
+	
+	.contenedor {
+		flex-direction:column;
+	}
+
+	header {
+	
+	width:100%;
+	font-family:arial;
+	display: flex;
+	justify-content:space-between;
+	align-items:center;
+	flex-direction:row;
+	flex-wrap:wrap;
+}
+
+	header .logo {
+		margin:20px 0;
+		vertical-align:top;
+	}
+	
+	header .logo img {
+		width:80%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
+		align-items: center;
+	}
+
+	header nav {
+		width: 100%;
+		flex-flow:column;
+		padding: 2px;
+		
+	}
+	
+	header nav a {
+		width: 100%;
+		font-size:30px;
+	}
+	
+	header .social img{
+		height:64px;
+	}
+	
+	
+	#carrusel img{
+		height:300px;
+	}
+	
+	.textof{
+		font-size:16px;
+	}
+	
+	.main article {
+		font-family:verdana;
+		font-size:20px;
+		
+	}
+
+	.main img{
+		width:60%;
+	}
+
+	.main img:nth-last-child(2){
+		width:100%;
+		
+	}
+
+	#articulo2{
+		font-size:20px;
+		font-family:verdana;
+	}
+
+	.campaña {
+		width:30%;	
+	}
+
+	.campaña a {	
+		font-size:20px;	
+	}
+	
+	galeria {
+		width: 100%;
+	}
+
+	galeria .widget {
+		flex-grow:1;
+	}
+	
+	galeria .imagen{
+		flex-flow: row wrap;
+	}
+	
+	footer {
+		width:100%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	
+
+	
+	.contenedor {
+		flex-direction:column;
+	}
+
+	header {
+	
+	width:100%;
+	font-family:arial;
+	display: flex;
+	justify-content:space-between;
+	align-items:center;
+	flex-direction:row;
+	flex-wrap:wrap;
+}
+
+	header .logo {
+		margin:5px 0;
+		vertical-align:top;
+	}
+	
+	header .logo img {
+		width:80%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
+		align-items: center;
+	}
+
+	header nav {
+		width: 100%;
+		flex-flow:column;
+		padding: 2px;
+		
+	}
+	
+	header nav a {
+		width: 100%;
+		font-size:20px;
+	}
+	
+	header .social img{
+		height:32px;
+	}
+	
+	
+	#carrusel img{
+		height:150px;
+	}
+	
+	.textof{
+		font-size:8px;
+	}
+	
+	.main article {
+		font-family:verdana;
+		font-size:13px;
+		
+	}
+
+	.main img{
+		width:60%;
+	}
+
+	.main img:nth-last-child(2){
+		width:100%;
+		
+	}
+
+	#articulo2{
+		font-size:13px;
+		font-family:verdana;
+	}
+
+	.campaña {
+		width:35%;	
+	}
+
+	.campaña a {	
+		font-size:13px;	
+	}
+	
+	galeria {
+		width: 100%;
+	}
+
+	galeria .widget {
+		flex-grow:1;
+	}
+	
+	galeria .imagen{
+		flex-flow: row wrap;
+	}
+	
+	footer .texto {
+		width:100%;
+		font-size:13px;
+	}
+}

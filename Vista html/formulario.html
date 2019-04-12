@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="js/jquery.js"></script>
+        <link rel="stylesheet" href="css/formulario.css"> 
+		<meta name="description" content="Registro de usuario"><!--Utilizamos el descriptor en meta para apoyar la busqueda de contenidos en la web-->
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"><!--las escalas indican un punto inicial, la escala maxima y minima-->
+		<script src="prefix.js" type="test/javascript"></script><!--Script para asegurarq eu en todos los navegadores y dispositivos el sitio se vea igual-->
+        <title>Formulario</title>
+    </head>
+    <body>
+	
+        <div class="contenedor">
+		<header><!--el cuadrado principal de la porción superior de la pagina-->
+			<div class="logo">
+				<img src="img/fondo-transparente.png" width="150" alt="">
+			</div>
+
+			<nav><!--define o prepara menus, determina que los elementos esta dentro de un ul-->
+				<a href="index.html">Inicio</a>
+				<a href="#">Biblioteca</a>
+				<a href="#">Registrarse</a>
+			</nav>	
+		</header>
+		
+		
+        <div class="areaTrabajo">
+            <h1>Formulario de Contacto</h1>
+            <form id="registration_form" action="#" method="post">
+                <table>
+				
+					<tr>
+                        <td>Correo Electrónico:</td><!--crea campo correo electronico y valida que el formato del correo haya sido ingresado correctamente-->
+						<td><input type="email" class="form_text" name="email" id="email" placeholder="mail@mail.com" required pattern="^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"></td>
+                        <td><span class="error" id="erroremail"></span></td>
+                    </tr>
+				
+                    <tr>
+                        <td>Run:</td><td><!--crea campo run y valida que el rut haya sido ingresado correctamente-->
+						<input type="text" class="form_text" name="rut" id="rut" placeholder="12345678k" required pattern="^([0-9]{8})([0-9.k?]{1})$"></td><td>
+						<span class="error" id="errorrut" required></span></td>
+                    </tr>
+					
+					<tr>
+                        <td>Nombre completo:</td><td><!--crea campo nombre completo y valida que el nombre solo posea letras y espacios-->
+						<input type="text" class="form_text" name="nombreUsuario" id="nombreUsuario" placeholder="Cesar Bahamondes Perez" required pattern="^[a-zA-Zñ\s]+$"></td><td>
+						<span class="error" id="errornombreUsuario"></span></td>
+                    </tr>
+					
+					<tr>
+                        <td>Fecha de nacimiento:</td><!--crea campo fecha de nacimiento y solo permite ingresar fechas previas al año 2000-->
+						<td><input type="date" class="form_text" name="fechanac" id="fechanac" max="2000-12-31" required></td><td>
+						<span class="error" id="errorfechanac"></span></td>
+                    </tr>
+					
+					<tr>
+                        <td>Telefono de contacto:</td><!--crea campo telefono de contacto y valida que solo numeros hayan sido ingresados-->
+						<td><input type="text" class="form_text" name="numcontacto" id="numcontacto" placeholder="222222222" pattern="[0-9]*"></td><td>
+						<td><span class="error" id="errorfono"></span></td>
+					</tr>
+					
+					<tr>
+						<td>Región</td><!--crea campo región y permite seleccionar de entre la regiones predeterminadas-->
+						<td><select id="regiones" required>
+						<option value="sin-region">Seleccione región</option></select></td>
+					</tr>
+					
+					<tr>
+						<td>Ciudad</td><!--crea campo ciudad y permite seleccionar de entre las ciudades predeterminadas-->
+						<td><select id="ciudad" required>
+						<option value="sin-region">Seleccione región</option></select></td>
+                    </tr>
+					  
+                    <tr>
+                        <td></td><td><input type="submit" value="Enviar" class="btn-enviar" id="btn-enviar"></td><td></td>
+                    </tr>
+                </table>
+                
+				
+            </form>
+			
+        </div>
+        
+	
+		<footer><!--pie de pagina-->
+				
+				<section class="texto">
+					<p>Gestión ágil de proyectos</p>
+				</section>
+	
+		</footer>
+		
+		<script  src="js/codigo.js"></script>  
+		<script src="js/regiones.js"></script>
+		
+		</div>
+		
+		
+    </body>
+	
+</html>
