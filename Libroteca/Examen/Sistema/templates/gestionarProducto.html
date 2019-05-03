@@ -1,0 +1,45 @@
+{% extends "maqueta.html" %}<!--Extiende el html maqueta para ser utilizado dentro de el html adoptarMascota-->
+{% load staticfiles %}<!--carga los archivos para ser utilizados por la pagina-->
+{% block Formulario %}<!--crea el block Formulario que sera mostrado en la maqueta-->
+<form id="registroProducto" class="Form" method="POST" action="#">
+    
+    <!-- tabla utilizada para registrar un producto -->
+    <h1>Registrar Producto</h1>
+        {% csrf_token %}
+        <table>
+        <tr>
+            <td>Nombre producto:</td><td><input type="text" id="nombreProducto" name="nombreProducto" required></td>
+        </tr>
+        <tr>
+            <td>Costo Presuspuestado:</td><td><input type="number" id="costoPresupuestado" name="costoPresupuestado" ></td>
+        </tr> 
+        <tr>
+            <td>Costo Real:</td><td><input type="number" id="costoReal" name="costoReal" ></td>
+        </tr>
+        <tr>
+            <td>Tienda:</td><td><input type="text" id="tiendaProducto" name="tiendaProducto" ></td>
+        </tr>
+        <tr>
+            <td>Nota Adicional:</td><td><input type="textarea" id="notaAdicional" name="notaAdicional" ></td>
+        </tr>
+        
+      </table>
+    <input type="submit" value="Registrar" class="btn-enviar">
+</form>
+{% endblock %}
+{% block Lista %}
+<!-- este es el listar  -->
+<div class="formu">
+    <h1>Lista de Productos</h1>
+    <table id="listaProductos">
+            <tr>
+                <td id="top">Nombre producto</td>
+                <td id="top">Costo Presuspuestado</td>
+                <td id="top">Costo Real</td>
+                <td id="top">Tienda</td>
+                <td id="top">Nota Adicional</td>
+            </tr>
+        </table>
+        
+</div>
+{% endblock %}
