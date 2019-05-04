@@ -1,0 +1,178 @@
+<html lang="es">
+{% load staticfiles %}
+{% load pwa %}
+    <head>
+        {% progressive_web_app_meta %}
+        <meta charset="utf-8">
+        <title>Libroteca</title>
+        <meta name="description" content="Libroteca">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"><!-- -->
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}"><!--Script para estilo de la pagina-->
+        <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}"><!--Script para el estilo del carrusel-->
+        <script src="{% static 'js/jquery.js' %}"></script><!--Script para jquery de la pagina -->
+        <script src="{% static 'js/jquery.bxslider.min.js' %}"></script><!--Script para el carrusel de fotos -->
+        <script src="{% static 'js/prefix.js' %}" type="test/javascript"></script><!--Script para asegurar que -->
+    </head> 
+    
+
+    <body>
+        <div class="contenedor"><!--crea la division llamada contenedor-->
+        <header>
+            <div class="logo">
+                <img src="{% static 'images/duoc.png' %}" width="150" alt="">
+                <h1 class="tituloinicial">{{ titulo }}</h1>
+            </div>
+      
+                        
+           <!--Colocara el titulo de la pagina determinado en el views -->
+            {% if user.is_authenticated %}<!--en caso de que el usuario sea autenticado se mostraran estas opciones-->
+                {% if user.is_staff %}<!--en caso de que el usuario sea autenticado como administrador se mostraran estas opciones-->
+                <nav>
+                    <a href="/index/">Inicio</a>
+                    <a href="/gestionarUsuarios/">Agregar Usuario</a>                   
+                    <a href="/salir/">Salir</a><!--Logout-->
+                </nav>
+                {% else %}<!--en caso de que el usuario sea autenticado como usuario se mostraran estas opciones-->
+                <nav>
+                    <a href="/index/">Inicio</a>
+                    <a href="/salir/">Salir</a>
+
+                </nav>
+                {% endif%}
+            {% else %}<!--en caso de que no haya autentificación-->
+            <nav>
+                <a href="/index/">Inicio</a>
+                <a href="/registro/">Registrarse</a>
+                <a href="/login/">Ingresar</a>
+                <a href="#">Contactanos</a>
+            </nav>
+            {% endif%}
+
+
+        </header>
+
+        <script  src="{% static 'js/codigo.js' %}"></script>
+        <script  src="{% static 'js/regiones.js' %}"></script> 
+        <!-- script utilizado para llamar al js que llena los combobox de region y ciudad -->
+       
+        
+        <section class="block"><!--crea una seccion llamada block-->
+
+            <div class="container"><!--crea una division llamada container-->
+                <div class="principal"><!--crea el bloque principal-->
+                    {% block principal %}<!--llama al block principal--> 
+                    {% endblock %}
+                </div>
+                <div class="formulario"><!--crea la division para el bloque formulario-->
+                    {% block Formulario %} 
+                    {% endblock %}
+                    </div>
+                <div class="lista"><!--crea la division para el bloque Lista-->
+                    {% block Lista %}
+                    {% endblock %}
+                </div>
+                <div class="usuario"><!--crea la division para el bloque usuario-->
+                    {% block Usuario %} 
+                    {% endblock %}
+                </div>
+                <div class="login"><!--crea la division para el bloque login-->
+                    {% block Login %} 
+                    {% endblock %}
+                </div>
+                <div class="content"><!--crea la division para el bloque content-->
+                    {% block content %} 
+                    {% endblock %}
+                </div>
+                <div class="serializer"><!--crea la division para el bloque serializer-->
+                    {% block serializer %}
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+
+        <footer><!--pie de pagina-->
+				
+            <section class="texto">
+                <p>Gestión ágil de proyectos</p>
+            </section>
+    
+        </footer>  
+        </div>
+        <script  src="{% static 'js/codigo.js' %}"></script><!--llamada al script codigo para el js-->      
+    </body>
+    <!-- ajax para listar usuario -->
+    <script>
+        $(document).ready(function(){
+            $.ajax({url: "http://localhost:8000/Control/serializerUsuarios",  success: function(result){
+                $.each(result,function(i,items){
+                    $("#listaUsuarios").append('<tr><td>'+ result[i].user.username +'</td>'+
+                                                '<td>'+ result[i].nombre+'</td>'+
+                                                '<td>'+ result[i].perfil +'</td>'+
+                                                '<td>'+ result[i].rut +'</td></tr>');
+
+               });
+            }});
+        })
+        //ajax  para registro de usuario
+        $("#registroExterno").submit(function(e) {
+            e.preventDefault();
+            var self = this;
+            $.ajax({url:'http://localhost:8000/Control/serializerUsuarios/',type:'post',
+                        data: { 'nombreusuario': $("#nombreusuario").val(),
+                        'email':$("#email").val(),
+                        'contrasenia':$("#contrasenia").val(),
+                        'rut':$("#rut").val(),
+                        'nombre':$("#nombre").val(),
+                        'perfil':$("#perfil").val(),
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+            async: false,
+            success: function () {
+                self.submit();
+                alert("Usuario "+ nombreusuario.val() +" Registrado Correctamente");
+                window.location.replace("http://localhost:8000/registro/");
+                },
+            error: function () {
+                alert("Este Usuario ya está Registrado");
+                }
+            });  
+         });
+        //ajax  para registro de usuario interno con administrador 
+        $("#registroInterno").submit(function(e) {
+            e.preventDefault();
+            var self = this;
+            $.ajax({url:'http://localhost:8000/Control/serializerUsuarios/',type:'post',
+                data: { 'nombreusuario': $("#nombreUsuario").val(),
+                        'email':$("#email").val(),
+                        'contrasenia':$("#contrasenia").val(),
+                        'rut':$("#rut").val(),
+                        'nombre':$("#nombre").val(),
+                        'perfil':$("#perfil").val(),
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                async: false,
+                success: function () {
+                    self.submit();
+                    alert("Usuario "+ nombreusuario.val +" Registrado Correctamente");
+                    window.location.replace("http://localhost:8000/gestionarUsuarios/");
+                },
+                error: function () {
+                    alert("Este Usuario ya está Registrado");
+                }
+            });  
+         });
+        
+        //ajax para listar una lista
+         $(document).ready(function(){
+            $.ajax({url: "http://localhost:8000/Control/serializerListas",  success: function(result){
+                $.each(result,function(i,items){
+                    $("#listaListas").append('<tr><td>'+ result[i].Productos +'</td>'+
+                                                '<td>'+ result[i].usuario+'</td>'+
+                                                '<td>'+ result[i].nombreLista +'</td></tr>');
+                        
+               });
+            }});
+        })
+    
+    </script>
+</html>
