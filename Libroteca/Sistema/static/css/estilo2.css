@@ -198,35 +198,32 @@ header .logo img {
 
 /*Caracteristicas del contenedor nav*/
 header nav {
-	width:100%;
+	width:50%;
 	/* Flexbox */
-
+	
 	display:flex;
-	flex-wrap:wrap;
+	flex-wrap:row;
 	flex-direction:row;/*genera que los elementos del nav se ordenen en una columna*/
 	align-items:center;
+	text-align: center;
+	padding:5px;
 	
 }
 
 /*Caracteristicas de los elementos al interior del nav*/
 header nav a {
-	background:#4C4C4C;/*le da el color al fondo del elemento nav a*/
-	width:99%;/*determina el porcentaje del espacio que ocuparan los elementos a dentro del nav*/
-	color:#fff;/*determina el color de las letras escritas en los a*/
-	text-align: center;/*alinea al texto al centro de cada a*/
-	text-decoration: none;/*remueve el subrayado generado en los links*/
-	margin: 1px;/*genera espacio de 1px entre los elementos del nav a*/
-	padding:5px;/*espacio de 10px entre los elementos del nav a y su contenedor*/
-	flex-direction: row;
-	font-size:50px;/*indica el tamaño que tendran las letras del texto del nav a*/
-
-	/* Flexbox */
-	flex-grow:1;/*determina que los elementos del nav a creceran para utilizar el 100% del espacio disponible*/
+	background:#EEEEEE;
+	width: 100%;
+	color:black;
+	text-align: center;
+	text-decoration:none;
+	padding:25px;
+	flex-grow: 1;
 }
 
 /*Caracteristicas cuando se pasa por encimas de los botones del nav */
 header nav a:hover {
-	background:#4C4C4C;/*cambia el color de los elementos del nav cuando se pasa por encima de estos o cuando se hace click*/
+	background:#ccc;/*cambia el color de los elementos del nav cuando se pasa por encima de estos o cuando se hace click*/
 }
 
 
@@ -477,14 +474,19 @@ footer .texto{
 @media screen and (max-width: 600px) {
 	
 
-	
 	.contenedor {
 		flex-direction:column;
 	}
 
 	header {
-		flex-direction:column;
-		padding:0;
+		width:100%;
+		font-family:arial;
+		display: flex;
+		justify-content:space-between;
+		align-items:center;
+		flex-direction:row;
+		flex-wrap:wrap;
+		
 	}
 
 	header .logo {
@@ -493,7 +495,7 @@ footer .texto{
 	}
 	
 	header .logo img {
-		width:80%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
+		width:100%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
 		align-items: center;
 	}
 
@@ -505,6 +507,7 @@ footer .texto{
 	}
 	
 	header nav a {
+		padding:10px;
 		width: 100%;
 		font-size:30px;
 	}
@@ -576,8 +579,14 @@ footer .texto{
 	}
 
 	header {
-		flex-direction:column;
-		padding:0;
+		width:100%;
+		font-family:arial;
+		display: flex;
+		justify-content:space-between;
+		align-items:center;
+		flex-direction:row;
+		flex-wrap:wrap;
+		
 	}
 
 	header .logo {
