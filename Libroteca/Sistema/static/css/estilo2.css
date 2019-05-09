@@ -160,12 +160,15 @@ body {
 	justify-content:center;
 }
 
+.contenedor .tituloinicial{
+	color:#fff;
+	font-size: 55px;
+	
+}
 /*Caracteristicas el contenedor header*/
 header {
 	background:#4C4C4C;/*Determina el color del fondo del header*/
 	width:100%;/*Determina el ancho en % que utilizara el header horizontalmente*/
-	font-size: 40px;
-
 	/* Flexbox */
 	display: flex;/*Le da la caracteristica de flex al header*/
 	/*Determina como se organizaran los items al interior del flexbox en este caso indicando que existira espacio entre ellos*/
@@ -179,11 +182,9 @@ header {
 header .logo {
 	width:600px;
 	vertical-align: auto;
-	
-
-	/* display: flex;
-	flex-direction:row;
-	align-items:center;alinea al item logo al centro del header */
+	 display: flex;
+	flex-direction:column;
+	align-items:center;/*alinea al item logo al centro del header */
 	
 }
 
@@ -193,12 +194,14 @@ header .logo img {
 	width:80%;/*Determina el tamaño de la imagen a 800 pixeles al interior del contenedor logo*/
 	margin:20px;/*le da un margen de 20 pixeles del header a la imagen*/
 	align-items:center;/*alinea a la imagen al centro del header*/
+	font-family: Arial, Helvetica, sans-serif;
 	padding: 10px;/*Determina el espacio que existira entre la clase logo y los archivo img en su interior*/
 }
 
 /*Caracteristicas del contenedor nav*/
 header nav {
-	width:50%;
+	width:100%;
+	padding: 5px;
 	/* Flexbox */
 	
 	display:flex;
@@ -206,7 +209,6 @@ header nav {
 	flex-direction:row;/*genera que los elementos del nav se ordenen en una columna*/
 	align-items:center;
 	text-align: center;
-	padding:5px;
 	
 }
 
@@ -214,11 +216,13 @@ header nav {
 header nav a {
 	background:#EEEEEE;
 	width: 100%;
+	padding: 1em;
 	color:black;
+	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	text-decoration:none;
-	padding:25px;
 	flex-grow: 1;
+	
 }
 
 /*Caracteristicas cuando se pasa por encimas de los botones del nav */
@@ -238,7 +242,7 @@ header nav a:hover {
 	position: absolute;/*determina que el texto es colocado relativo a su primer ancestro*/
 	bottom:10px;/*borde de 10 pixeles entre el texto y el borde inferior del carrusel*/
 	left:10px;/*borde de 10 pixeles entre el texto y el costado izquierdo del carrusel*/
-	font-family:consolas;/*determina que el tipo de fuente utilizado por el texto del carrusel es consolas*/
+	font-family: Arial, Helvetica, sans-serif;/*determina que el tipo de fuente utilizado por el texto del carrusel es consolas*/
 	width: 25%;/*determina que el tamaño del texto al interior del carrusel tendra un ancho del 25%*/
 	font-size:25px;/*determina que el tamaño de la fuente del texto del carrusel*/
 	
@@ -266,9 +270,9 @@ header .social {
 	width:100%;/*porcentaje del ancho de la pagina que va a usar el articulo*/
 	margin-bottom: 20px;/*tamaño del margen del fondo del articulo*/
 	padding-bottom:20px;/*tamaño de la distancia entre el articulo y el fondo del main*/
-	font-size:25px;/*tamaño de la fuente*/
+	font-size:20px;/*tamaño de la fuente*/
 	text-align:right;/*alineación del texto*/
-	font-family:verdana;/*tipo de fuente*/
+	font-family: Arial, Helvetica, sans-serif;/*tipo de fuente*/
 	
 }
 
@@ -282,10 +286,10 @@ header .social {
 	width:100%;/*porcentaje del ancho de la pagina que va a usar el articulo*/
 	margin-bottom: 20px;/*tamaño del margen del fondo del articulo*/
 	padding-bottom:20px;/*tamaño de la distancia entre el articulo y el fondo del main*/
-	font-size:25px;/*tamaño de la fuente*/
+	font-size:20px;/*tamaño de la fuente*/
 	align-items:left;/*alineación de los items*/
 	text-align:left;/*alineación del texto*/
-	font-family:verdana;/*tipo de fuente*/
+	font-family: Arial, Helvetica, sans-serif;/*tipo de fuente*/
 }
 
 /*Caracteristicas del elemento campaña al interior del contenedor main*/
@@ -378,18 +382,21 @@ footer .texto{
 /*Determina las caracteristicas previamente definidas a cambiar cuando la resolucion de la pagina es de 800 pixeles*/
 @media screen and (max-width: 800px) {
 	
+
 	.contenedor {
 		flex-direction:column;
 	}
 
+	.contenedor .tituloinicial{
+		color:#fff;
+		font-size: 38px;
+		
+	}
 	header {
 		flex-direction:column;
 		padding:1px;
 		margin:1px;
-		font-size: 22px;
-		color: #fff;
 
-		
 	}
 
 	header .logo {
@@ -406,11 +413,12 @@ footer .texto{
 		border-color: #BFBFBF;
 		flex-flow:column;
 		padding: 2px;
+		font-size:10px;
 	}
 	
 	header nav a {
 		width: 100%;
-		font-size:50px;
+		font-size:18px;
 	}
 	
 	header .social img{
@@ -477,6 +485,10 @@ footer .texto{
 	.contenedor {
 		flex-direction:column;
 	}
+	.contenedor .tituloinicial{
+		color:#fff;
+		font-size: 38px;
+	}
 
 	header {
 		width:100%;
@@ -502,16 +514,15 @@ footer .texto{
 	header nav {
 		width: 100%;
 		flex-flow:column;
-		padding: 2px;
+		padding: 1px;
 		
 	}
-	
 	header nav a {
-		padding:10px;
+		padding:8px;
 		width: 100%;
-		font-size:30px;
+		font-size:17px;
+		
 	}
-	
 	header .social img{
 		height:64px;
 	}
@@ -577,6 +588,11 @@ footer .texto{
 	.contenedor {
 		flex-direction:column;
 	}
+	.contenedor .tituloinicial{
+		color:#fff;
+		font-size: 38px;
+		
+	}
 
 	header {
 		width:100%;
@@ -590,7 +606,7 @@ footer .texto{
 	}
 
 	header .logo {
-		margin:5px 0;
+		margin:5px ;
 		vertical-align:top;
 	}
 	
@@ -608,7 +624,7 @@ footer .texto{
 	
 	header nav a {
 		width: 100%;
-		font-size:20px;
+		font-size:15px;
 	}
 	
 	header .social img{
