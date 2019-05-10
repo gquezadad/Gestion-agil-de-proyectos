@@ -5,10 +5,10 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Ingresar</button><!--boton que realizar la accion de mandar los datos ingresados para el login-->
-    <a href="{% url 'social:begin' 'github' %}">Login con GitHub</a>
-    
+    <!-- <a href="{% url 'social:begin' 'github' %}">Login con GitHub</a> -->
+
     <a href="/password_reset/">Recuperar contraseña</a><!--Link que lleva a la pagina para el cambio de contraseña-->
-    
+
 </form>
 
 

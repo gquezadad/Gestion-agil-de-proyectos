@@ -12,8 +12,8 @@
         <script src="{% static 'js/jquery.js' %}"></script><!--Script para jquery de la pagina -->
         <script src="{% static 'js/jquery.bxslider.min.js' %}"></script><!--Script para el carrusel de fotos -->
         <script src="{% static 'js/prefix.js' %}" type="test/javascript"></script><!--Script para asegurar que -->
-    </head> 
-    
+    </head>
+
 
     <body>
         <div class="contenedor"><!--crea la division llamada contenedor-->
@@ -22,14 +22,14 @@
                 <img src="{% static 'images/duoc.png' %}" width="170" alt="">
                 <h1 class="tituloinicial">{{ titulo }}</h1>
             </div>
-      
-                        
+
+
            <!--Colocara el titulo de la pagina determinado en el views -->
             {% if user.is_authenticated %}<!--en caso de que el usuario sea autenticado se mostraran estas opciones-->
                 {% if user.is_staff %}<!--en caso de que el usuario sea autenticado como administrador se mostraran estas opciones-->
                 <nav>
                     <a href="/index/">Inicio</a>
-                    <a href="/gestionarUsuarios/">Agregar Usuario</a>                   
+                    <a href="/gestionarUsuarios/">Agregar Usuario</a>
                     <a href="/salir/">Salir</a><!--Logout-->
                 </nav>
                 {% else %}<!--en caso de que el usuario sea autenticado como usuario se mostraran estas opciones-->
@@ -44,7 +44,6 @@
                 <a href="/index/">Inicio</a>
                 <a href="/registro/">Registrarse</a>
                 <a href="/login/">Ingresar</a>
-                <a href="#">Contactanos</a>
             </nav>
             {% endif%}
 
@@ -52,19 +51,19 @@
         </header>
 
         <script  src="{% static 'js/codigo.js' %}"></script>
-        <script  src="{% static 'js/regiones.js' %}"></script> 
+        <script  src="{% static 'js/regiones.js' %}"></script>
         <!-- script utilizado para llamar al js que llena los combobox de region y ciudad -->
-       
-        
+
+
         <section class="block"><!--crea una seccion llamada block-->
 
             <div class="container"><!--crea una division llamada container-->
                 <div class="principal"><!--crea el bloque principal-->
-                    {% block principal %}<!--llama al block principal--> 
+                    {% block principal %}<!--llama al block principal-->
                     {% endblock %}
                 </div>
                 <div class="formulario"><!--crea la division para el bloque formulario-->
-                    {% block Formulario %} 
+                    {% block Formulario %}
                     {% endblock %}
                     </div>
                 <div class="lista"><!--crea la division para el bloque Lista-->
@@ -72,15 +71,15 @@
                     {% endblock %}
                 </div>
                 <div class="usuario"><!--crea la division para el bloque usuario-->
-                    {% block Usuario %} 
+                    {% block Usuario %}
                     {% endblock %}
                 </div>
                 <div class="login"><!--crea la division para el bloque login-->
-                    {% block Login %} 
+                    {% block Login %}
                     {% endblock %}
                 </div>
                 <div class="content"><!--crea la division para el bloque content-->
-                    {% block content %} 
+                    {% block content %}
                     {% endblock %}
                 </div>
                 <div class="serializer"><!--crea la division para el bloque serializer-->
@@ -91,19 +90,19 @@
         </section>
 
         <footer><!--pie de pagina-->
-				
+
             <section class="texto">
                 <p>Gestión ágil de proyectos</p>
             </section>
-    
-        </footer>  
+
+        </footer>
         </div>
-        <script  src="{% static 'js/codigo.js' %}"></script><!--llamada al script codigo para el js-->      
+        <script  src="{% static 'js/codigo.js' %}"></script><!--llamada al script codigo para el js-->
     </body>
     <!-- ajax para listar usuario -->
     <script>
         $(document).ready(function(){
-            $.ajax({url: "http://localhost:8000/Control/serializerUsuarios",  success: function(result){
+            $.ajax({url: "http://gquezada.pythonanywhere.com/Control/serializerUsuarios",  success: function(result){
                 $.each(result,function(i,items){
                     $("#listaUsuarios").append('<tr><td>'+ result[i].user.username +'</td>'+
                                                 '<td>'+ result[i].nombre+'</td>'+
@@ -117,7 +116,7 @@
         $("#registroExterno").submit(function(e) {
             e.preventDefault();
             var self = this;
-            $.ajax({url:'http://localhost:8000/Control/serializerUsuarios/',type:'post',
+            $.ajax({url:'http://gquezada.pythonanywhere.com/Control/serializerUsuarios/',type:'post',
                         data: { 'nombreusuario': $("#nombreusuario").val(),
                         'email':$("#email").val(),
                         'contrasenia':$("#contrasenia").val(),
@@ -130,18 +129,18 @@
             success: function () {
                 self.submit();
                 alert("Usuario "+ nombreusuario.val() +" Registrado Correctamente");
-                window.location.replace("http://localhost:8000/registro/");
+                window.location.replace("http://gquezada.pythonanywhere.com/registro/");
                 },
             error: function () {
                 alert("Este Usuario ya está Registrado");
                 }
-            });  
+            });
          });
-        //ajax  para registro de usuario interno con administrador 
+        //ajax  para registro de usuario interno con administrador
         $("#registroInterno").submit(function(e) {
             e.preventDefault();
             var self = this;
-            $.ajax({url:'http://localhost:8000/Control/serializerUsuarios/',type:'post',
+            $.ajax({url:'http://gquezada.pythonanywhere.com/Control/serializerUsuarios/',type:'post',
                 data: { 'nombreusuario': $("#nombreUsuario").val(),
                         'email':$("#email").val(),
                         'contrasenia':$("#contrasenia").val(),
@@ -154,25 +153,25 @@
                 success: function () {
                     self.submit();
                     alert("Usuario "+ nombreusuario.val +" Registrado Correctamente");
-                    window.location.replace("http://localhost:8000/gestionarUsuarios/");
+                    window.location.replace("http://gquezada.pythonanywhere.com/gestionarUsuarios/");
                 },
                 error: function () {
                     alert("Este Usuario ya está Registrado");
                 }
-            });  
+            });
          });
-        
+
         //ajax para listar una lista
          $(document).ready(function(){
-            $.ajax({url: "http://localhost:8000/Control/serializerListas",  success: function(result){
+            $.ajax({url: "http://gquezada.pythonanywhere.com/Control/serializerListas",  success: function(result){
                 $.each(result,function(i,items){
                     $("#listaListas").append('<tr><td>'+ result[i].Productos +'</td>'+
                                                 '<td>'+ result[i].usuario+'</td>'+
                                                 '<td>'+ result[i].nombreLista +'</td></tr>');
-                        
+
                });
             }});
         })
-    
+
     </script>
 </html>

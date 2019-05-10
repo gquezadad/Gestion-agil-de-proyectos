@@ -25,7 +25,7 @@ SECRET_KEY = '9%h&r22bnjsg((fqqul&_^xe)q4rk6$05bn1s*2uypxvvdgwc9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','gquezada.pythonanywhere.com']
 
 
 # Application definition
@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-CL'
 
 TIME_ZONE = 'UTC'
 
@@ -138,8 +138,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-SOCIAL_AUTH_GITHUB_KEY = '7a3d26d12190822f10fb'
-SOCIAL_AUTH_GITHUB_SECRET = 'f3c430c34bb93f631f0140c55baced790823ff85'
+SOCIAL_AUTH_GITHUB_KEY = '17d47ebe21b0fc62b9a4'
+SOCIAL_AUTH_GITHUB_SECRET = 'eb5b762c785771ed9bb313397ede6fc4ea330768'
 
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/index/'#redirecciona al index en caso de error de login
@@ -151,10 +151,12 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'cuentadjango1234@gmail.com'
-EMAIL_HOST_PASSWORD = 'duocdjango'
+EMAIL_HOST_PASSWORD = 'gestionagil1234'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/gquezada/Gestion-agil-de-proyectos/Libroteca/static'
 
 #carpeta donde se guardan imagenes subidas a la applicación
 MEDIA_URL = '/Libroteca/media/'

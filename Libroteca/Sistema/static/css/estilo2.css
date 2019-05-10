@@ -3,7 +3,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	/*se define como se calculararn los cuadrados en base al ancho y al sitio y al alto con respecto del padding y el margin 
+	/*se define como se calculararn los cuadrados en base al ancho y al sitio y al alto con respecto del padding y el margin
 	content-box indica que todo sera sin considerar padding o borders
 	border-box indica que se incluyen en los calculos bordes y padding
 	initial se fija el valor por defecto, depende
@@ -163,7 +163,7 @@ body {
 .contenedor .tituloinicial{
 	color:#fff;
 	font-size: 55px;
-	
+
 }
 /*Caracteristicas el contenedor header*/
 header {
@@ -185,7 +185,7 @@ header .logo {
 	 display: flex;
 	flex-direction:column;
 	align-items:center;/*alinea al item logo al centro del header */
-	
+
 }
 
 
@@ -203,13 +203,13 @@ header nav {
 	width:100%;
 	padding: 5px;
 	/* Flexbox */
-	
+
 	display:flex;
 	flex-wrap:row;
 	flex-direction:row;/*genera que los elementos del nav se ordenen en una columna*/
 	align-items:center;
 	text-align: center;
-	
+
 }
 
 /*Caracteristicas de los elementos al interior del nav*/
@@ -222,7 +222,7 @@ header nav a {
 	text-align: center;
 	text-decoration:none;
 	flex-grow: 1;
-	
+
 }
 
 /*Caracteristicas cuando se pasa por encimas de los botones del nav */
@@ -245,7 +245,7 @@ header nav a:hover {
 	font-family: Arial, Helvetica, sans-serif;/*determina que el tipo de fuente utilizado por el texto del carrusel es consolas*/
 	width: 25%;/*determina que el tamaño del texto al interior del carrusel tendra un ancho del 25%*/
 	font-size:25px;/*determina que el tamaño de la fuente del texto del carrusel*/
-	
+
 }
 
 /*Contenedor de los elementos de redes sociales*/
@@ -273,7 +273,7 @@ header .social {
 	font-size:20px;/*tamaño de la fuente*/
 	text-align:right;/*alineación del texto*/
 	font-family: Arial, Helvetica, sans-serif;/*tipo de fuente*/
-	
+
 }
 
 /*Caracteristicas de los elementos img al interior del contenedor main*/
@@ -334,7 +334,7 @@ header .social {
 }
 
 .galeria .caja img{
-    width: 100%;/*determina el ancho que usaran las imagenes de caja*/	
+    width: 100%;/*determina el ancho que usaran las imagenes de caja*/
 }
 
 .galeria img:hover{
@@ -381,7 +381,7 @@ footer .texto{
 
 /*Determina las caracteristicas previamente definidas a cambiar cuando la resolucion de la pagina es de 800 pixeles*/
 @media screen and (max-width: 800px) {
-	
+
 
 	.contenedor {
 		flex-direction:column;
@@ -390,7 +390,7 @@ footer .texto{
 	.contenedor .tituloinicial{
 		color:#fff;
 		font-size: 38px;
-		
+
 	}
 	header {
 		flex-direction:column;
@@ -403,7 +403,7 @@ footer .texto{
 		width:400px;
 		vertical-align: top;
 	}
-	
+
 	header .logo img {
 		width:80%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
 		align-items: center;
@@ -415,29 +415,29 @@ footer .texto{
 		padding: 2px;
 		font-size:10px;
 	}
-	
+
 	header nav a {
 		width: 100%;
 		font-size:18px;
 	}
-	
+
 	header .social img{
 		height:64px;
 	}
-	
-	
+
+
 	#carrusel img{
 		height:100%;
 	}
-	
+
 	.textof{
 		font-size:20px;
 	}
-	
+
 	.main article {
 		font-family:verdana;
 		font-size:20px;
-		
+
 	}
 
 	.main img{
@@ -446,7 +446,7 @@ footer .texto{
 
 	.main img:nth-last-child(2){
 		width:100%;
-		
+
 	}
 
 	#articulo2{
@@ -455,13 +455,13 @@ footer .texto{
 	}
 
 	.campaña {
-		width:30%;	
+		width:30%;
 	}
 
-	.campaña a {	
-		font-size:30px;	
+	.campaña a {
+		font-size:30px;
 	}
-	
+
 	galeria {
 		width: 100%;
 	}
@@ -469,18 +469,18 @@ footer .texto{
 	galeria .widget {
 		flex-grow:1;
 	}
-	
+
 	galeria .imagen{
 		flex-flow: row wrap;
 	}
-	
+
 	footer {
 		width:100%;
 	}
 }
 
 @media screen and (max-width: 600px) {
-	
+
 
 	.contenedor {
 		flex-direction:column;
@@ -498,14 +498,14 @@ footer .texto{
 		align-items:center;
 		flex-direction:row;
 		flex-wrap:wrap;
-		
+
 	}
 
 	header .logo {
 		margin:20px 0;
 		vertical-align:top;
 	}
-	
+
 	header .logo img {
 		width:100%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
 		align-items: center;
@@ -515,31 +515,31 @@ footer .texto{
 		width: 100%;
 		flex-flow:column;
 		padding: 1px;
-		
+
 	}
 	header nav a {
 		padding:8px;
 		width: 100%;
 		font-size:17px;
-		
+
 	}
 	header .social img{
 		height:64px;
 	}
-	
-	
+
+
 	#carrusel img{
 		height:300px;
 	}
-	
+
 	.textof{
 		font-size:16px;
 	}
-	
+
 	.main article {
 		font-family:verdana;
 		font-size:20px;
-		
+
 	}
 
 	.main img{
@@ -548,7 +548,7 @@ footer .texto{
 
 	.main img:nth-last-child(2){
 		width:100%;
-		
+
 	}
 
 	#articulo2{
@@ -557,13 +557,13 @@ footer .texto{
 	}
 
 	.campaña {
-		width:30%;	
+		width:30%;
 	}
 
-	.campaña a {	
-		font-size:20px;	
+	.campaña a {
+		font-size:20px;
 	}
-	
+
 	galeria {
 		width: 100%;
 	}
@@ -571,27 +571,27 @@ footer .texto{
 	galeria .widget {
 		flex-grow:1;
 	}
-	
+
 	galeria .imagen{
 		flex-flow: row wrap;
 	}
-	
+
 	footer {
 		width:100%;
 	}
 }
 
 @media screen and (max-width: 400px) {
-	
 
-	
+
+
 	.contenedor {
 		flex-direction:column;
 	}
 	.contenedor .tituloinicial{
 		color:#fff;
 		font-size: 38px;
-		
+
 	}
 
 	header {
@@ -602,14 +602,14 @@ footer .texto{
 		align-items:center;
 		flex-direction:row;
 		flex-wrap:wrap;
-		
+
 	}
 
 	header .logo {
 		margin:5px ;
 		vertical-align:top;
 	}
-	
+
 	header .logo img {
 		width:80%;/*Determina el tamaño de la imagen al interior del contenedor logo*/
 		align-items: center;
@@ -619,31 +619,31 @@ footer .texto{
 		width: 100%;
 		flex-flow:column;
 		padding: 2px;
-		
+
 	}
-	
+
 	header nav a {
 		width: 100%;
 		font-size:15px;
 	}
-	
+
 	header .social img{
 		height:32px;
 	}
-	
-	
+
+
 	#carrusel img{
 		height:150px;
 	}
-	
+
 	.textof{
 		font-size:8px;
 	}
-	
+
 	.main article {
 		font-family:verdana;
 		font-size:13px;
-		
+
 	}
 
 	.main img{
@@ -652,7 +652,7 @@ footer .texto{
 
 	.main img:nth-last-child(2){
 		width:100%;
-		
+
 	}
 
 	#articulo2{
@@ -661,13 +661,13 @@ footer .texto{
 	}
 
 	.campaña {
-		width:35%;	
+		width:35%;
 	}
 
-	.campaña a {	
-		font-size:13px;	
+	.campaña a {
+		font-size:13px;
 	}
-	
+
 	galeria {
 		width: 100%;
 	}
@@ -675,11 +675,11 @@ footer .texto{
 	galeria .widget {
 		flex-grow:1;
 	}
-	
+
 	galeria .imagen{
 		flex-flow: row wrap;
 	}
-	
+
 	footer .texto {
 		width:100%;
 		font-size:13px;
