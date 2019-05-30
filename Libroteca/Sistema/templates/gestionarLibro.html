@@ -1,0 +1,42 @@
+{% extends "maqueta.html" %}<!--Extiende el html maqueta para ser utilizado dentro de el html-->
+{% load staticfiles %}<!--carga los archivos para ser utilizados por la pagina-->
+{% block Formulario %}<!--crea el block Formulario que sera mostrado en la maqueta-->
+
+<form method="POST" enctype="multipart/form-data" ><!--genera un form que utilizara el metodo POST y agrega el campo necesario para mostrar imagenes-->
+    <h2>Agregar Libro</h2><!--titulo del form-->
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Agregar Libro</button><!--boton que realizar la accion de mandar los datos ingresados-->
+    <button type="submit" href="{% url 'index' %}">Modificar</button><!--boton que realizar la accion modificar los datos ingresados-->	
+</form>
+{% endblock %}<!--fin de bloque-->
+
+{% block Lista %}<!--crea el block Formulario que sera mostrado en la maqueta-->
+{% if libros %}<!--si se encuentra objecto del tipo Libro entonces realiza las acciones al interior de este-->
+<table class="tabla"><!--crea una tabla-->
+    <tr>
+        <td>Id Libro</td><!--coloca etiquetas con el nombre ingresado-->
+        <td>Nombre Libro</td>
+        <td>Descripcion Libro</td>
+        <td>Foto Libro</td>
+    </tr>
+    {% for l in libros %}<!--si se encuentra una Libro realizara las acciones al interior-->
+            <tr>
+                <td>{{ l.idLibro }}</td><!--llama a los datos del campo especificado para el Libro obtenido-->
+                <td>{{ l.nombreLibro }}</td>
+                <td>{{ l.descripcionLibro }}</td>
+                <td>{{ l.estadoLibro }}</td>
+                <td><img src="{{ m.fotoLibro.url }}" width="100px" height="50px"></td><!--llama a la imagen para poder mostrarla-->
+                <td class ="boton_accion">
+                    {% if l %}
+                     <a class="boton_eliminar" href=" {% url 'delete_post' l.idLibro%}"> Eliminar</a>
+                     {% endif%}
+                </td>
+         
+            </tr>
+    {% endfor %}
+</table>
+{% else %}<!--en caso de no existir Libros, muestra el titulo de "No hay Lista-->
+<h2>No hay Libros</h2>
+{% endif %}
+{% endblock %}<!--fin de bloque-->

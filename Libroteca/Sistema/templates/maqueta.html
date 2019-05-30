@@ -30,10 +30,13 @@
                 <nav>
                     <a href="/index/">Inicio</a>
                     <a href="/gestionarUsuarios/">Agregar Usuario</a>
+                    <a href="/gestionarLibro/">Agregar Libro</a>
+                    <a href="/ListaLibros/">Lista de libros</a>
                     <a href="/salir/">Salir</a><!--Logout-->
                 </nav>
                 {% else %}<!--en caso de que el usuario sea autenticado como usuario se mostraran estas opciones-->
                 <nav>
+                    <a href="/ListaLibros/">Lista de libros</a>
                     <a href="/index/">Inicio</a>
                     <a href="/salir/">Salir</a>
 
@@ -42,6 +45,7 @@
             {% else %}<!--en caso de que no haya autentificación-->
             <nav>
                 <a href="/index/">Inicio</a>
+                <a href="/ListaLibros/">Lista de libros</a>
                 <a href="/registro/">Registrarse</a>
                 <a href="/login/">Ingresar</a>
             </nav>
