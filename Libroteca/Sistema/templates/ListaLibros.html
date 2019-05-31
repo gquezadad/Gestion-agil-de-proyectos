@@ -3,18 +3,15 @@
 {% block Lista %}<!--crea el block Usuario que sera mostrado en la maqueta-->
 {% if libros %}<!--si se encuentra objecto del tipo libro entonces realiza las acciones al interior de este-->
 
-<table><!--crea una tabla-->                   
-    <tr>
-        <!--coloca etiquetas con el nombre ingresado-->
-        <td>id Libro</td><td>Nombre Libro</td><td>Estado del Libro</td><td>Foto del Libro</td>
-    </tr>
-    {% for l in libros %}<!--para los libros obtenidos mostrara los campos ingresados con la informacion para cada objeto libro-->
-    <tr>
-        <td>{{l.idLibro}}</td> <td>{{ l.nombreLibro}}</td><td>  {{ l.estadoLibro }}</td><td class="foto"><img src="{{l.fotoLibro.url}}" width="100px" height="50px"></td>
-    </tr>
-    {% endfor %}
-    <br>   
-</table>
+{% for l in libros %}
+    <ul class="list-group">
+    <li class="list-group-item"><td>Código: </td>{{l.idLibro}}</li>
+    <li class="list-group-item"><td>Titulo: </td>{{ l.nombreLibro}}</li>
+    <li class="list-group-item"><td>Autor: </td>{{ l.descripcionLibro}}</li>
+    <li class="list-group-item"><td>Estado: </td>{{ l.estadoLibro }}</li>
+    <li class="list-group-item"><img src="{{l.fotoLibro.url}}" width="100px" height="50px"></li>
+  </ul>
+  {% endfor %}
 {% else %}<!--en caso de no existir libros, muestra el titulo de "No hay libros-->
 <h2>No hay Libros registrados</h2>
 {% endif %}
