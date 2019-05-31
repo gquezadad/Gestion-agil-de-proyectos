@@ -1,0 +1,79 @@
+{% extends "maqueta.html" %}
+{% block principal %}
+{% load staticfiles %}
+<html>
+        
+
+        <div id="carrusel"><!-- -->
+            <div><img src="{% static 'images/libros/Libros1.jpg' %}"><div class="textof">""</div> </div>
+            <div><img src="{% static 'images/libros/Libros2.jpg' %}"><div class="textof">""</div></div>
+            <div><img src="{% static 'images/libros/Libros3.jpg' %}"><div class="textof">""</div></div>
+            <div><img src="{% static 'images/libros/Libros4.jpg' %}"><div class="textof">""</div></div>
+        </div>
+
+        <header>       
+            <div class="social"><!--genera referencias a paginas y determina la imagen que ocupara cada elemento-->
+                <a href="#"><div><img src="{% static 'images/social/facebookblanco64.png' %}"></div></a>
+                <a href="#"><div><img src="{% static 'images/social/googleplusblanco64.png' %}"></div></a>
+                <a href="#"><div><img src="{% static 'images/social/instagramblanco64.png' %}"></div></a>
+                <a href="#"><div><img src="{% static 'images/social/youtubeblanco64.png' %}"></div></a>
+            </div>
+        </header>
+        
+        <script src="{% static 'js/codigo.js' %}"></script>
+
+        <section class="main"><!--determina la seccion de informacion principal de la pagina -->
+            <article>
+                <h2 class="titulo">Misión</h2>
+                <p></p>
+                <p>_________</p>
+                
+                <p>Libroteca es una biblioteca pública online, 
+                        modelo de servicios innovadores de calidad y equidad, 
+                        generando igualdad de oportunidades en el acceso a la información, 
+                        conocimiento, recreación, cultura, educación y fomento a la lectura 
+                        y escritura, teniendo como eje de su acción 
+                        a los habitantes de la Región Metropolitana y los
+                        usuarios y usuarias del sistema de bibliotecas públicas del país.
+            </p>
+                <div><img src="{% static 'images/Libros3.jpg' %}"></div>
+            </article>
+
+            <article id="articulo2"><!--separa al segundo articulo del main del primero proporcionandele una id para entregarle distintas caracteristicas-->
+                <!-- <div><img src="{% static 'images/Libros2.jpg' %}"></div> -->
+                <h2 class="titulo">Vision</h2>
+                <p></p>
+                <p>______</p>
+                <p>Libroteca pretende ser el modelo de 
+                    biblioteca pública para el país. Concebida como un moderno 
+                    centro de servicios de información bibliográfica, actividades 
+                    culturales y de fomento a la lectura y escritura, atendiendo las 
+                    demandas de conocimiento, información, educación, 
+                    cultura y recreación de la comunidad.</p>	
+                
+            </article>
+            
+            <div class="campaña">
+                    <a href="#"><strong> LIBROS</a>
+            </div>	
+            
+        </section>
+
+        <section class="galeria">
+				
+            <div class="caja">
+                <div><img src="{% static 'images/libros/Libros1.jpg' %}" title="Libros"></div>
+            </div>
+                     
+            <div class="cajalargo">							
+                <div><img src="{% static 'images/libros/Libros2.jpg' %}" title="Libros"></div>
+            </div>
+                     
+            <div class="caja">
+                <div><img src="{% static 'images/libros/Libros3.jpg' %}" title="Libros"></div>
+            </div>	
+                     
+        </section>
+        
+</html>
+{% endblock %}

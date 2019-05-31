@@ -1,0 +1,15 @@
+{% extends "maqueta.html" %}<!--Extiende el html maqueta-->
+{% load staticfiles %}<!--carga los archivos para ser utilizados por la pagina-->
+{% block Login %}<!--crea el block Login que sera mostrado en la maqueta-->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ingresar</button><!--boton que realizar la accion de mandar los datos ingresados para el login-->
+    <!-- <a href="{% url 'social:begin' 'github' %}">Login con GitHub</a> -->
+
+    <a href="/password_reset/">Recuperar contraseña</a><!--Link que lleva a la pagina para el cambio de contraseña-->
+
+</form>
+
+
+{% endblock %}<!--fin de bloque-->
