@@ -9,7 +9,7 @@ choices=(
 class LoginForm(forms.Form):
     username=forms.CharField(widget=forms.TextInput(),label="Usuario")
     password=forms.CharField(widget=forms.PasswordInput(),label="Password")
-	
+
 class AgregarLibro(forms.Form):
     nombreLibro=forms.CharField(widget=forms.TextInput(), label="Nombre libro")
     descripcionLibro=forms.CharField(widget=forms.TextInput(), label="Descripción del Libro")

@@ -1,0 +1,22 @@
+    
+pips a instalara
+
+pip install django
+pip install pillow
+pip install social-auth-app-django
+pip install python-social-auth
+pip install djangorestframework
+pip install django-progressive-web-app
+
+contraseñas de usuarios
+
+usuario: usuario
+contraseña: usuario
+
+usuario:admin
+contraseña:admin
+
+credencial admin de django
+
+usuario: admin
+contraseña: admin
