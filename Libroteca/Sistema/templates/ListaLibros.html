@@ -4,13 +4,26 @@
 {% if libros %}<!--si se encuentra objecto del tipo libro entonces realiza las acciones al interior de este-->
 
 {% for l in libros %}
-    <ul class="list-group">
+    <!-- <ul class="list-group">
     <li class="list-group-item"><td>Código: </td>{{l.idLibro}}</li>
     <li class="list-group-item"><td>Titulo: </td>{{ l.nombreLibro}}</li>
     <li class="list-group-item"><td>Autor: </td>{{ l.descripcionLibro}}</li>
     <li class="list-group-item"><td>Estado: </td>{{ l.estadoLibro }}</li>
     <li class="list-group-item"><img src="{{l.fotoLibro.url}}" width="150px" height="200px"></li>
-  </ul>
+  </ul> -->
+
+  <div class="card" style="width: 18rem;">
+      <img src="{{l.fotoLibro.url}}" width="150px" height="200px">
+      <div class="card-body">
+          <li class="list-group-item"><td>Código: </td>{{l.idLibro}}</li>
+          <li class="list-group-item"><td>Titulo: </td>{{ l.nombreLibro}}</li>
+          <li class="list-group-item"><td>Autor: </td>{{ l.descripcionLibro}}</li>
+          <li class="list-group-item"><td>Estado: </td>{{ l.estadoLibro }}</li>
+          
+        <a href="#" class="btn btn-primary stretched-link"> Solicitar</a>
+      </div>
+    </div>
+
   {% endfor %}
 {% else %}<!--en caso de no existir libros, muestra el titulo de "No hay libros-->
 <h2>No hay Libros registrados</h2>
