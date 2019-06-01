@@ -23,4 +23,4 @@ urlpatterns = [
     path('', include('Sistema.urls')),#incluye las urls de Sistema
     path('Control/', include('api.urls')),#incluye las urls de api
     path('', include('pwa.urls')),#incluye las urls del pwa
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

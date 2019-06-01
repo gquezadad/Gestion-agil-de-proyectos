@@ -26,7 +26,7 @@
                 <td>{{ l.nombreLibro }}</td>
                 <td>{{ l.descripcionLibro }}</td>
                 <td>{{ l.estadoLibro }}</td>
-                <td><img src="{{ m.fotoLibro.url }}" width="100px" height="50px"></td><!--llama a la imagen para poder mostrarla-->
+                <td><img src="{{ l.fotoLibro.url }}" width="100px" height="100px"></td><!--llama a la imagen para poder mostrarla-->
                 <td class ="boton_accion">
                     {% if l %}
                      <a class="boton_eliminar" href=" {% url 'delete_post' l.idLibro%}"> Eliminar</a>
