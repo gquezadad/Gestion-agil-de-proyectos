@@ -25,7 +25,7 @@ SECRET_KEY = '9%h&r22bnjsg((fqqul&_^xe)q4rk6$05bn1s*2uypxvvdgwc9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gquezada.pythonanywhere.com']
 
 
 # Application definition

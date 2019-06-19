@@ -1,0 +1,19 @@
+{% extends "maqueta.html" %}<!--Extiende el html maqueta para ser utilizado dentro de el html-->
+{% load staticfiles %}<!--carga los archivos para ser utilizados por la pagina-->
+{% block Lista %}<!--crea el block Formulario que sera mostrado en la maqueta-->
+{% if reserva %}
+    {% for r in reserva %}
+    <img src="{{r.fotoLibro.url}}" width="150px" height="200px">
+    <div class="card-body">
+        <li class="list-group-item"><td>Código: </td>{{ r.idLibro }}</li>
+        <li class="list-group-item"><td>Titulo: </td>{{ r.nombreLibro }}</li>
+        <li class="list-group-item"><td>Autor: </td>{{ r.descripcionLibro }}</li>
+        <li class="list-group-item"><td>Estado: </td>{{ r.estadoLibro }}</li> 
+        <a href = "{% url 'eliminarReserva' pk=r.codigoReserva %}" class="btn btn-primary stretched-link"> Eliminar</a>
+    </div>
+   
+    {% endfor %}
+    {% else %}
+    <h2>No hay reservas</h2>
+    {% endif %}
+{% endblock %}

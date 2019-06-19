@@ -7,7 +7,6 @@
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Agregar Libro</button><!--boton que realizar la accion de mandar los datos ingresados-->
-    <button type="submit" href="{% url 'index' %}">Modificar</button><!--boton que realizar la accion modificar los datos ingresados-->	
 </form>
 {% endblock %}<!--fin de bloque-->
 
@@ -30,6 +29,7 @@
                 <td class ="boton_accion">
                     {% if l %}
                      <a class="boton_eliminar" href=" {% url 'delete_post' l.idLibro%}"> Eliminar</a>
+                     <a class= "boton_modificar" href = "{% url 'modificarLibro' pk=l.idLibro %}"> Modificar </a> 
                      {% endif%}
                 </td>
          

@@ -1,8 +1,8 @@
 from django.shortcuts import render, render_to_response, redirect,get_object_or_404
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Usuario, Libro
-from .forms import LoginForm, AgregarLibro 
+from .models import Usuario, Libro, Reserva
+from .forms import LoginForm, AgregarLibro, AgregarReserva 
 from django.contrib.auth.models import User
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
@@ -51,7 +51,7 @@ def salir(request) :
 #metodo que permite añadir a un libro
 def gestionarLibro(request):
     libros=Libro.objects.all()
-    form=AgregarLibro(request.POST, request.FILES)
+    form=AgregarLibro(request.POST or None, request.FILES or None)
     if form.is_valid():
         datos=form.cleaned_data
         regDB=Libro(idLibro=datos.get("idLibro"),
@@ -64,6 +64,17 @@ def gestionarLibro(request):
     titulo="Gestion de Libros"
     return render(request,"gestionarLibro.html",{'libros':libros,'form':form,'titulo':titulo,})
 
+def modificarLibro(request, pk):
+    libro=Libro.objects.get(idLibro=pk)
+    if request.method == "GET":
+        form = AgregarLibro
+    else:
+        form = AgregarLibro(request.POST or None,request.FILES or None,instance=libro)
+        if form.is_valid():
+            form.save()
+        return redirect('gestionarLibro')
+    return render(request, 'modificarLibro.html', {'form':form})
+
 def ListaLibros(request):
     libros=Libro.objects.all()
     return render(request,"ListaLibros.html",{'libros':libros,})
@@ -73,9 +84,40 @@ def delete_post(request, postid):
     instance = get_object_or_404(Libro, idLibro=postid)
     instance.delete()
     messages.add_message(request, messages.SUCCESS, "The post with id %s has been deleted! " %postid)
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect("/gestionarLibro/")
 
 #view para obtener el template para el serviceworker
 def base_layout(request):
 	template='maqueta.html'
-	return render(request,template)
+	return render(request,template)    
+
+@login_required
+def añadirReserva(request,pk):
+    libro=Libro.objects.get(idLibro=pk)
+    reserva=Reserva.objects.all()
+    if request.method == "GET":
+        form = AgregarReserva(instance=libro)
+    else:
+        form = AgregarReserva(request.POST or None,request.FILES or None,instance=libro)
+        if form.is_valid():
+            datos=form.cleaned_data
+            regDb=Reserva(
+                idLibro=datos.get("idLibro"),
+                nombreLibro=datos.get("nombreLibro"),
+                estadoLibro=datos.get("estadoLibro"),
+                usuario=request.user.username)
+            regDb.save()
+            form.save()
+        return redirect('ListaLibros')
+    return render(request, 'añadirReserva.html', {'form':form,'libro':libro})
+
+def verReserva(request):
+    reserva=Reserva.objects.all()
+    return render(request,"verReserva.html",{'reserva':reserva,})
+
+def eliminarReserva(request, pk):
+    reserva=Reserva.objects.get(codigoReserva=pk)
+    if request.method == "POST":
+        reserva.delete()
+        return redirect('verReserva')
+    return render (request, 'eliminarReserva.html', {'reserva':reserva})

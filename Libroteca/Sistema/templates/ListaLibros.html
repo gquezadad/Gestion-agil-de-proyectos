@@ -20,7 +20,7 @@
           <li class="list-group-item"><td>Autor: </td>{{ l.descripcionLibro}}</li>
           <li class="list-group-item"><td>Estado: </td>{{ l.estadoLibro }}</li>
           
-        <a href="#" class="btn btn-primary stretched-link"> Solicitar</a>
+        <a href = "{% url 'añadirReserva' pk=l.idLibro %}" class="btn btn-primary stretched-link"> Solicitar</a>
       </div>
     </div>
 
@@ -29,3 +29,4 @@
 <h2>No hay Libros registrados</h2>
 {% endif %}
 {% endblock %}<!--fin de bloque-->
+

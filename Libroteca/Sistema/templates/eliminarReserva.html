@@ -1,0 +1,12 @@
+{% extends "maqueta.html" %}<!--Extiende el html maqueta para ser utilizado dentro de el html-->
+{% load staticfiles %}<!--carga los archivos para ser utilizados por la pagina-->
+{% block Formulario %}
+ <form method="POST" action="" enctype="multipart/form-data">
+    <div class="card-body">
+        <h1>Eliminar de la Reserva?</h1>
+    {% csrf_token %}
+    <input type="submit" value="Eliminar">
+    <a type="submit" href= "{% url 'verReserva' %}">Cancelar</a>
+    </div>
+</form> 
+{% endblock %}
