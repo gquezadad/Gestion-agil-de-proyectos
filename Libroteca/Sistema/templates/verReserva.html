@@ -9,7 +9,7 @@
         <li class="list-group-item"><td>Titulo: </td>{{ r.nombreLibro }}</li>
         <li class="list-group-item"><td>Autor: </td>{{ r.descripcionLibro }}</li>
         <li class="list-group-item"><td>Estado: </td>{{ r.estadoLibro }}</li> 
-        <a href = "{% url 'eliminarReserva' pk=r.codigoReserva %}" class="btn btn-primary stretched-link"> Eliminar</a>
+        <a href = "{% url 'eliminarReserva' pk=r.codigoReserva %}" class="btn btn-danger"" > Eliminar</a>
     </div>
    
     {% endfor %}
