@@ -20,31 +20,20 @@
         <td>Foto Libro</td>
     </tr>
     {% for l in libros %}<!--si se encuentra una Libro realizara las acciones al interior-->
-           <table class="tabla">
-                <thead>
-                        <tr>
-                        <th scope="col">código</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Autor</th>
-                        <th scope="col">Portada</th>
-                        <th scope="col">Gestionar</th>
-                        </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ l.idLibro }}</td>
-                        <td>{{ l.nombreLibro }}</td>
-                        <td>{{ l.descripcionLibro }}</td>
-                        <td><img src="{{ l.fotoLibro.url }}" width="100px" height="100px"></td>
-                        <td class ="boton_accion">
-                            {% if l %}
-                                <a class="btn btn-danger" href=" {% url 'delete_post' l.idLibro%}"> Eliminar</a>
-                                <a class="btn btn-primary stretched-link" href = "{% url 'modificarLibro' pk=l.idLibro %}"> Modificar </a> 
-                            {% endif%}
-                        </td>
-                    </tr>
-
-            </table>
+            <tr>
+                <td>{{ l.idLibro }}</td><!--llama a los datos del campo especificado para el Libro obtenido-->
+                <td>{{ l.nombreLibro }}</td>
+                <td>{{ l.descripcionLibro }}</td>
+                <td>{{ l.estadoLibro }}</td>
+                <td><img src="{{ l.fotoLibro.url }}" width="100px" height="100px"></td><!--llama a la imagen para poder mostrarla-->
+                <td class ="boton_accion">
+                    {% if l %}
+                     <a class="boton_eliminar" href=" {% url 'delete_post' l.idLibro%}"> Eliminar</a>
+                     <a class= "boton_modificar" href = "{% url 'modificarLibro' pk=l.idLibro %}"> Modificar </a> 
+                     {% endif%}
+                </td>
+         
+            </tr>
     {% endfor %}
 </table>
 {% else %}<!--en caso de no existir Libros, muestra el titulo de "No hay Lista-->
